@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Author_name</th>
+                {# <th>Author_name</th> #}
                 <th>Content</th>
                 <th>Created_at</th>
                 <th>actions</th>
@@ -19,7 +19,7 @@
         {% for comment in comments %}
             <tr>
                 <td>{{ comment.id }}</td>
-                <td>{{ comment.authorName }}</td>
+                {# <td>{{ comment.authorName }}</td> #}
                 <td>{{ comment.content }}</td>
                 <td>{{ comment.createdAt ? comment.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>

@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;    
 
 class UserType extends AbstractType
 {
@@ -13,8 +14,11 @@ class UserType extends AbstractType
     {
         $builder
             ->add('username')
-            ->add('roles')
-            ->add('password')
+            ->add('plainPassword', TextType::class, [
+                'mapped' => false // Ne pas mapper ce champ à l'entité User
+                                   // car le mot de passe est stocké sous forme de hash
+                
+            ])
         ;
     }
 

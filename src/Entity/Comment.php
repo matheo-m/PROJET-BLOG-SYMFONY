@@ -14,8 +14,8 @@ class Comment
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $author_name = null;
+    // #[ORM\Column(length: 255)]
+    // private ?string $author_name = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
@@ -36,17 +36,17 @@ class Comment
         return $this->id;
     }
 
-    public function getAuthorName(): ?string
-    {
-        return $this->author_name;
-    }
+    // public function getAuthorName(): ?string
+    // {
+    //     return $this->author_name;
+    // }
 
-    public function setAuthorName(string $author_name): static
-    {
-        $this->author_name = $author_name;
+    // public function setAuthorName(string $author_name): static
+    // {
+    //     $this->author_name = $author_name;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getContent(): ?string
     {
