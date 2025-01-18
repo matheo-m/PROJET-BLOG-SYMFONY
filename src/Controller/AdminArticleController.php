@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use DateTimeImmutable;
 
 #[Route('/admin/article')]
 final class AdminArticleController extends AbstractController
@@ -26,6 +27,9 @@ final class AdminArticleController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $article = new Article();
+        $article->setCreatedAt(new DateTimeImmutable('+1 hour'));
+        $article->setUpdatedAt(new DateTimeImmutable('+1 hour'));
+        $article->setUser($this->getUser());
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
@@ -53,6 +57,7 @@ final class AdminArticleController extends AbstractController
     #[Route('/{id}/edit', name: 'app_admin_article_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Article $article, EntityManagerInterface $entityManager): Response
     {
+        $article->setUpdatedAt(new DateTimeImmutable('+1 hour'));
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
