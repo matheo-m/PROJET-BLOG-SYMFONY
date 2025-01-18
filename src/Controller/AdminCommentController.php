@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use DateTimeImmutable;
 
 #[Route('/admin/comment')]
 final class AdminCommentController extends AbstractController
@@ -26,6 +27,8 @@ final class AdminCommentController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $comment = new Comment();
+        $comment->setCreatedAt(new DateTimeImmutable('+1 hour'));
+
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
