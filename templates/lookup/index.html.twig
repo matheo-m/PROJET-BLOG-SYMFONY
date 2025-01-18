@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LookupController!{% endblock %}
+
+{% block body %}
+
+<div>
+    <form>
+        <div class="form-group">
+            <label for="lookup">Lookup</label>
+            <input type="search" name="search" placeholder="Recherche...">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+<table>
+    {% for article in articles %}
+        <tr>
+            <td>{{ article.id }}</td>
+            <td>{{ article.title }}</td>
+            <td>{{ article.content }}</td>
+            <td>
+                <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="7">no records found</td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
