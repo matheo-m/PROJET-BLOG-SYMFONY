@@ -1,3 +1,47 @@
+html,
 body {
-    background-color: skyblue;
+    height: 100%;
+    /* S'assurer que le HTML et le body occupent toute la hauteur */
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    /* Permet au contenu principal de prendre tout l'espace disponible */
+}
+
+footer {
+    padding: 1rem 0;
+}
+
+.navbar {
+    font-size: 1.1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.btn-success {
+    background-color: #414ce4;
+}
+
+.btn-success:hover {
+    background-color: #ffffff;
+    border-color: #1824cf;
+    color: #000000;
+}
+
+
+/* Ajuster les liens du dropdown */
+.navbar-nav .dropdown-menu .dropdown-item {
+    color: black;
+}
+
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+    color: #333;
 }

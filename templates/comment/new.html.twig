@@ -1,10 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Comment{% endblock %}
+{% block title %}Ajouter un nouveau commentaire{% endblock %}
 
 {% block body %}
-    <h1>Create new Comment</h1>
+<div class="container py-5">
+    <h1 class="text-center text-primary mb-4">Ajouter un nouveau commentaire</h1>
 
-    {{ include('comment/_form.html.twig') }}
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Partagez vos réflexions</h5>
+            <p class="card-text">Exprimez-vous sur cet article en ajoutant un commentaire.</p>
 
+            {{ include('comment/_form.html.twig') }}
+        </div>
+    </div>
+
+    <a href="{{ path('app_article_show', {'id': article.id}) }}" class="btn btn-outline-primary">
+        Retour à l'article
+    </a>
+</div>
 {% endblock %}

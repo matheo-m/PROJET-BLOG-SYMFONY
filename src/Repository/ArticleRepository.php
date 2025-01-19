@@ -47,10 +47,24 @@ class ArticleRepository extends ServiceEntityRepository
    public function findBySearch(String $text): array
    {
        return $this->createQueryBuilder('a')
-           ->andWhere('a.content LIKE :val')
+           ->andWhere('a.content LIKE :val OR a.title LIKE :val')
            ->setParameter('val', "%$text%")
            ->getQuery()
            ->getResult()
        ;
    }
+
+/**
+ * @return Article[] Returns an array of Article objects
+ */
+public function findByLatest(): array
+{
+     return $this->createQueryBuilder('a')
+          ->orderBy('a.updated_at', 'DESC')
+          ->setMaxResults(6)
+          ->getQuery()
+          ->getResult()
+     ;
+}
+
 }
