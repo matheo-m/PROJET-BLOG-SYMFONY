@@ -4,18 +4,19 @@
 
 {% block body %}
 <div class="container py-5">
-    <h1 class="text-center text-primary mb-4">Ajouter un nouveau commentaire</h1>
+    <h1 class="text-center text-primary mb-4">Ajouter un Nouveau Commentaire</h1>
 
-    <div class="card shadow-sm mb-4">
+    <div class="card shadow-lg rounded-lg mb-4">
         <div class="card-body">
-            <h5 class="card-title">Partagez vos réflexions</h5>
-            <p class="card-text">Exprimez-vous sur cet article en ajoutant un commentaire.</p>
+            <h5 class="card-title text-dark">Partagez vos réflexions avec nous !</h5>
+
+            <p class="card-text text-muted mb-4">Exprimez-vous sur cet article en ajoutant un commentaire. Nous serions ravis de connaître votre avis et vos idées sur ce sujet !</p>
 
             {{ include('comment/_form.html.twig') }}
         </div>
     </div>
 
-    <a href="{{ path('app_article_show', {'id': article.id}) }}" class="btn btn-outline-primary">
+    <a href="{{ path('app_article_show', {'id': article.id}) }}" class="btn btn-outline-primary btn-lg mt-3">
         Retour à l'article
     </a>
 </div>
